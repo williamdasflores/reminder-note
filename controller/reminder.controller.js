@@ -34,3 +34,9 @@ exports.getList = async(request, response) => {
     response.send(listReminder);
 }; 
 
+exports.delete = async(request, response) => {
+    const title = request.params.title;
+    await Reminder.findOneAndDelete({ title: title });
+    response.send('Note deleted');
+};
+

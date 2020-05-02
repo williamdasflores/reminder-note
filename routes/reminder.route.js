@@ -5,4 +5,5 @@ module.exports = (router) => {
     router.get('/:title', reminderController.get);
     router.get('/', reminderController.getList);
     router.put('/update/:title', reminderController.update);
+    router.delete('/:title', reminderController.delete);
 }
