@@ -1,1 +1,1 @@
-Simple CRUD using node.js, express, mongoose
+Simple CRUD using node.js, express, mongoose and React
