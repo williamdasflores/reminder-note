@@ -25,12 +25,18 @@ exports.update = async(request, response) => {
 
 exports.get = async (request, response) => {
     const title = request.params.title;
-    const reminder = await Reminder.findOne({ title: title });
+    const reminder = await Reminder.findOne({ title: title }).select({
+        "title": 1,
+        "description": 2
+    });
     response.send(reminder);
 };
 
 exports.getList = async(request, response) => {
-    const listReminder = await Reminder.find({});
+    const listReminder = await Reminder.find({}).select({ 
+        "title": 1,
+        "description": 2
+    });
     response.send(listReminder);
 }; 
 

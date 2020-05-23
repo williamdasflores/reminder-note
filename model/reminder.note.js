@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const reminderSchema = new Schema({
     title: {
         type: String,
-        unique: false,
+        unique: true,
         required: true
     }, 
     description: {
@@ -16,4 +16,4 @@ const reminderSchema = new Schema({
 });
 
 
-module.exports = mongoose.model('reminder', reminderSchema);
+module.exports = mongoose.model('notes', reminderSchema);
