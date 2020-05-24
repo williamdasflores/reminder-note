@@ -13,7 +13,7 @@ class AddNote extends Component {
       <div>
         <form onSubmit={(e) => this.onSubmit(e)} className="ui form">
           <div className="ui action input">
-            <div style={{ width: "600px" }}>
+            <div style={{ width: "800px" }}>
               <input
                 type="text"
                 onChange={(e) => this.setState({ text: e.target.value })}  
