@@ -17,8 +17,14 @@ class App extends Component {
     this.setState({ notes: response.data });
   }
 
-  onSubmitNote(note) {
+  onSubmitNote = async (note) =>  {
     console.log(note);
+    await axios.post("http://localhost:4000/api/create", {
+      title: note
+    });
+    const response = await axios.get("http://localhost:4000/api/");
+    this.setState({ notes: response.data });
+    
   };
 
   render() {

@@ -11,8 +11,11 @@ const reminderSchema = new Schema({
         type: String,
         unique: false,
         required: false
+    },
+    dateInsertion: {
+        type: Date,
+        required: true
     }
-    
 });
 
 
