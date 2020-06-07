@@ -6,6 +6,7 @@ class AddNote extends Component {
   onSubmit(event) {
     event.preventDefault();
     this.props.onSubmit(this.state.text);
+    this.setState({ text: "" })
   }
 
   render() {

@@ -18,7 +18,6 @@ class App extends Component {
   }
 
   onSubmitNote = async (note) =>  {
-    console.log(note);
     await axios.post("http://localhost:4000/api/create", {
       title: note
     });
@@ -27,12 +26,18 @@ class App extends Component {
     
   };
 
+  removeNote = async(title) => {
+    await axios.delete(`http://localhost:4000/api/${title}`)
+    const response = await axios.get("http://localhost:4000/api/");
+    this.setState({ notes: response.data });
+  }
+
   render() {
     return (
       <div className="ui container" style={{ marginTop: "50px" }}>
         <div className="ui compact segment">
           <AddNote onSubmit={this.onSubmitNote} />
-          <NoteList notes={this.state.notes} />
+          <NoteList notes={this.state.notes} removeNote={this.removeNote}/>
         </div>
       </div>
     );
